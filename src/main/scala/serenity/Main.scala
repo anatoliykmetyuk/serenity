@@ -163,6 +163,9 @@ object Main {
 
       // TODO: IMPORTANT: this is actually processFile(pathOnTheLineBelow) - read the file with optional YAML config, use that config in `solid`, if there's a `layout` entry in the config, lay it out. Repeat untill nothing changes.
       // TODO: How should the local yaml config be related to the liquid tags of the enclosing templates? Where this config is needed? It contains some metadata - tags, categories etc - so it will probably be needed from other plugins...
+      // TODO: Make a routine to read the file into (Option[Json], HTML). Format-specific parsers kick in here; for *.html it is identity.
+      // TODO: Then have a `process` routine: process(file, cfg): (Config, HTML). Read the file and a apply liquid tags to it.
+      // TODO: Then have `layout`. Layout is recursive. If it detects `layout` entry in the config, it calls process(layout, cfg + "content" -> currentFile).
       post       <- readFile(s"$workdirPath/$postsPath/$postName.md")  // TODO: readFileWithOptionalYamlConfigHeader
       liquified  <- solid(post, cfg)
       laidOut    <- layout("post", liquified)  // TODO: IMPORTANT: turns out, the layout is specified explicitly for posts too...
