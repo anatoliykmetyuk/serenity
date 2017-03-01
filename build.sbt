@@ -7,8 +7,10 @@ val KindProjector = "0.9.3"
 val FS2           = "0.9.4"
 val Matryoshka    = "0.16.5"
 
-val Scalatest    = "3.0.1"
-val CirceVersion = "0.7.0"
+val Scalatest = "3.0.1"
+val Circe     = "0.7.0"
+val CirceYaml = "0.5.0"
+val Eff       = "3.0.4"
 
 val ScalacheckMinTests = 1000
 
@@ -27,10 +29,12 @@ lazy val commonSettings = Seq(
 
   , "org.scalatest"  %% "scalatest" % Scalatest % "test"
 
-  , "io.circe" %% "circe-core"    % CirceVersion
-  , "io.circe" %% "circe-generic" % CirceVersion
-  , "io.circe" %% "circe-parser"  % CirceVersion
-  , "io.circe" %% "circe-yaml"    % "0.5.0"
+  , "io.circe" %% "circe-core"    % Circe
+  , "io.circe" %% "circe-generic" % Circe
+  , "io.circe" %% "circe-parser"  % Circe
+  , "io.circe" %% "circe-yaml"    % CirceYaml
+
+  , "org.atnos" %% "eff" % Eff
   )
 , addCompilerPlugin("org.spire-math" %% "kind-projector" % KindProjector)
 , scalacOptions ++= Seq(
