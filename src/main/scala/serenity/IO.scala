@@ -18,7 +18,7 @@ import _root_.io.circe.yaml.{ parser => yamlParser }
 import _root_.io.circe.{ Json, ParsingFailure, JsonObject }
 
 
-object io extends IO
+object IO extends IO
 trait IO {
   def readFile[R: Eval |= ?](path: Path): Eff[R, String] = for {
     res <- delay {  // TODO: abstract suspended computations

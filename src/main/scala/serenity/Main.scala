@@ -17,7 +17,7 @@ import fs2.{ Task, Stream, text }
 import _root_.io.circe.yaml.{ parser => yamlParser }
 import _root_.io.circe.{ Json, ParsingFailure, JsonObject }
 
-import serenity.io._
+import serenity.IO._
 
 object Main {
   val workdir  = "workdir/"
